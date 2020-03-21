@@ -6,4 +6,5 @@
 <p>Description: <%= @pet.description %></p><br>
 <p>Status: <%= @pet.adoption_status %></p><br>
 
-<%= link_to 'Delete Pet', "/pets/#{params[:id]}", method: :delete %><br><br><br>
+<%= link_to 'Delete Pet', "/pets/#{params[:id]}", method: :delete %><br>
+<%= link_to 'Update Pet', "/pets/#{params[:id]}/edit"%><br>
