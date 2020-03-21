@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20200319233647) do
     t.string "age"
     t.string "sex"
     t.string "description"
-    t.string "adoption_status"
+    t.string "adoption_status", default: "Available"
     t.string "shelter"
     t.bigint "shelter_id"
     t.index ["shelter_id"], name: "index_pets_on_shelter_id"

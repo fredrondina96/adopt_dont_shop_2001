@@ -6,7 +6,7 @@ class CreatePet < ActiveRecord::Migration[5.1]
       t.string :age
       t.string :sex
       t.string :description
-      t.string :adoption_status
+      t.string :adoption_status, default: 'Available'
       t.string :shelter
     end
   end
