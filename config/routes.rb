@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   patch '/shelters/:id', to: 'shelters#update'
   delete '/shelters/:id', to: 'shelters#destroy'
 
+
+  get '/shelters/:id/pets', to: 'pets#show_index'
+
   get "/pets", to: "pets#index"
+  get "/pets/:id", to: "pets#show"
 
 end
