@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get "/pets", to: "pets#index"
   get "/pets/:id", to: "pets#show"
+  delete "/pets/:id", to: "pets#destroy"
   post '/shelters/:id/pets', to: 'pets#create'
 
 end
