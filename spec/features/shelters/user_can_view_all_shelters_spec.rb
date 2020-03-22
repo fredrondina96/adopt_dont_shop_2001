@@ -48,4 +48,5 @@ RSpec.describe "shelters index page", type: :feature do
     visit "/shelters/#{shelter3.id}"
     expect(page).to have_link("All Shelters")
   end
+
 end
