@@ -4,6 +4,7 @@
   <p>Name: <%= "#{pet.name}"%></p>
   <p>Age: <%= pet.age %></p>
   <p>Sex: <%= pet.sex %></p>
-  <p>Shelter: <%=  "#{pet.shelter.name}"%></p><br>
+  <p>Shelter: <%=  "#{pet.shelter.name}"%></p>
+  <%= link_to 'Edit Pet', "/pets/#{pet.id}/edit"%><br><br>
 
   <% end %>
