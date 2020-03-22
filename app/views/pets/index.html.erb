@@ -1,7 +1,7 @@
 <h1>Local Pets</h1><br>
   <% @pets.each do |pet| %>
   <%= image_tag("#{pet.image}", :size => "260x180") %><br>
-  <p>Name: <%= "#{pet.name}"%></p>
+  <p>Name: <%= link_to "#{pet.name}", "/pets/#{pet.id}"%></p>
   <p>Age: <%= pet.age %></p>
   <p>Sex: <%= pet.sex %></p>
   <p>  Shelter:<%= link_to " #{pet.shelter.name}", "/shelters/#{pet.shelter.id}"%></p>
