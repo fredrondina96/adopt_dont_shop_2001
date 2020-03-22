@@ -59,4 +59,28 @@ RSpec.describe "Pet index page", type: :feature do
 
     expect(current_path).to eq("/shelters/#{shelter1.id}")
   end
+
+  it "user can click a link from any page to get to pet index page" do
+
+    shelter1 = Shelter.create!(name: "Larry's Lizards", address: "1331 17th Street", city: 'Denver', state: 'CO', zip: "80202")
+    shelter2 = Shelter.create!(name: "Ricardos Reptiles", address: "150 Main Street", city: 'Hershey', state: 'PA', zip: "17033")
+    pet1 = shelter1.pets.create!(name: "Sam", age: "12", sex: "Female", image: "https://66.media.tumblr.com/6a9b0ea4859319c0defd9681b3a78e8f/tumblr_n8o33kXRnG1qhaglio1_r1_1280.png")
+    pet3 = shelter2.pets.create!(name: "Lemmy", age: "3", sex: "Male", image: "https://i.redd.it/ypu5ydssuar21.jpg")
+
+    visit "/shelters"
+    expect(page).to have_link("All Pets")
+
+    visit "/pets"
+    expect(page).to have_link("All Pets")
+
+    visit "/shelters/#{shelter1.id}"
+    expect(page).to have_link("All Pets")
+
+    visit "/shelters/#{shelter2.id}"
+    expect(page).to have_link("All Pets")
+
+    visit "/pets/#{pet3.id}"
+    expect(page).to have_link("All Pets")
+
+  end
 end
