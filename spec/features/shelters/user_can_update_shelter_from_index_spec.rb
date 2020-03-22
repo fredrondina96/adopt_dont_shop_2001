@@ -24,13 +24,17 @@ RSpec.describe "From the Shelters Index Page", type: :feature do
       expect(page).to have_content("DDD")
       expect(page).to have_content("EEE")
       expect(page).to_not have_content("Larry's Lizards")
+  end
 
-# User Story 13, Shelter Update From Shelter Index Page
-#
-# As a visitor
-# When I visit the shelter index page
-# Next to every shelter, I see a link to edit that shelter's info
-# When I click the link
-# I should be taken to that shelters edit page where I can update its information just like in User Story 5
+  it "user can delete shelters" do
+    shelter1 = Shelter.create!(name: "Larry's Lizards", address: "1331 17th Street", city: 'Denver', state: 'CO', zip: "80202")
+
+    visit "/shelters"
+    expect(page).to have_content("#{shelter1.name}")
+
+    click_link ("Delete Shelter")
+
+    expect(current_path).to eq("/shelters")
+    expect(page).to_not have_content("#{shelter1.name}")
   end
 end
